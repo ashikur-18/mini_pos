@@ -2,28 +2,6 @@
 
 @section('main_content')
 
-	<div class="row clearfix page_header">
-		<div class="col-md-4">
-			<a class="btn btn-info btn-sm" href="{{ route('users.index') }}"> <i class="fa fa-arrow-left" aria-hidden="true"></i> Back </a>
-		</div>	
-		<div class="col-md-8 text-right">
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#newSale">
-				<i class="fa fa-plus"></i> New Sale
-			  </button>
-			
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#newPurchase">
-			  <i class="fa fa-plus"></i> New Purchase
-			</button>
-			
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#newPayment">
-			  <i class="fa fa-plus"></i> New Payment
-			</button>
-
-			<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#newReceipt">
-				<i class="fa fa-plus"></i> New Receipt
-			  </button>
-		</div>
-	</div>
 
 	<div class="row clearfix mt-5">
 		
