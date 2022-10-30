@@ -30,10 +30,11 @@
             </tr>
           </thead>
           <tbody>
-              @foreach ($users as $user)
+              @forelse ($users as $user)
                 <tr>
                   <td> {{ $user->id }} </td>
-                  <td> {{ $user->group->title }} </td>
+               
+                  <td> {{ $user->group->title ??  ""}} </td>
                   <td> {{ $user->name }} </td>
                   <td> {{ $user->email }} </td>
                   <td> {{ $user->phone }} </td>
@@ -62,7 +63,10 @@
                       </form>
                   </td>
                 </tr>
-            @endforeach
+                @empty
+                  
+               <h1>NO daata</h1>
+            @endforelse
           </tbody>
         </table>
       </div>

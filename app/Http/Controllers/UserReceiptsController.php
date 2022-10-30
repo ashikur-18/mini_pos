@@ -27,6 +27,7 @@ class UserReceiptsController extends Controller
         $formData 				= $request->all();
     	$formData['user_id'] 	= $user_id;
         $formData['admin_id'] 	= Auth::id();
+        
         if ($invoice_id) {
             $formData['sale_invoice_id']   = $invoice_id;
         }
@@ -38,7 +39,7 @@ class UserReceiptsController extends Controller
         if ($invoice_id) {
             return redirect()->route( 'user.sales.invoice_details', ['id' => $user_id, 'invoice_id' => $invoice_id] );
         } else {
-            return redirect()->route('user.receipts', ['id' => $user_id]);    
+            return redirect()->route('users.show', ['user' => $user_id]);   
         }
     }
     

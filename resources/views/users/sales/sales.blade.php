@@ -40,11 +40,11 @@
 			              	 ?>
 			              </td>
 			              <td> 
-			              	<?php 
-			              		$total = $sale->items()->sum('total');
-			              		$grandTotal += $total;
-			              		echo $total;
-			              	 ?>
+							<?php 
+								$total = $sale->items()->sum('total');
+								$grandTotal += $total;
+								echo $total;
+						 	?>
 			              </td>
 			              <td class="text-right">
 			              	<form method="POST" action=" {{ route('user.sales.destroy', ['id' => $user->id, 'invoice_id' => $sale->id ]) }} ">
@@ -58,7 +58,7 @@
 				              			<i class="fa fa-trash"></i>  
 				              		</button>	
 			              		@endif
-                        </form>
+                        	</form>
 			              </td>
 			            </tr>
 		            @endforeach

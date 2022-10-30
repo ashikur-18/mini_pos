@@ -18,6 +18,17 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function purchaseitems()
+    {
+        return $this->hasMany(Purchaseitems::class);
+    }
+
+    public function saleitems()
+    {
+        return $this->hasMany(Saleitems::class);
+    }
+
     public static function arrayForSelect(){
         $arr = [];
     	$products = Product::all();
