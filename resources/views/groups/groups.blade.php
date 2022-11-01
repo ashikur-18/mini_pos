@@ -7,7 +7,7 @@
 			<h2> User Groups </h2>		
 		</div>
 		<div class="col-md-6 text-right">
-			<a class="btn btn-info" href="{{ url('groups/create') }}"> <i class="fa fa-plus"></i> New Group </a>
+			<a class="btn btn-info btn-sm" href="{{ url('groups/create') }}"> <i class="fa fa-plus"></i> New Group </a>
 		</div>
 	</div>
 

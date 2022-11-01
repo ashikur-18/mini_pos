@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Session;
 
 class UserPurchaseController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
+        parent::__construct();
         $this->data['tab_menu'] = 'purchases';
     }
     public function index($id)

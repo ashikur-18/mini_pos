@@ -7,7 +7,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav bg-gradient-primary color-change-sidebar sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
@@ -21,8 +21,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
+            <li class="nav-item @if($main_manu == 'Dashboard') active @endif">
+                <a class="nav-link" href="{{ url('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -36,33 +36,48 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if($main_manu == 'Users') active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseone"
                     aria-expanded="true" aria-controls="collapseone">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Users</span>
                 </a>
-                <div id="collapseone" class="collapse" aria-labelledby="headingone" data-parent="#accordionSidebar">
+                <div id="collapseone" class="collapse @if($main_manu == 'Users') show @endif" aria-labelledby="headingone" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ url('groups') }}">groups</a>
-                        <a class="collapse-item" href="{{ url('users') }}">users</a>
-                    
+                        <a class="collapse-item @if($sub_manu == 'Groups')  active @endif" href="{{ url('groups') }}">Groups</a>
+                        <a class="collapse-item @if($sub_manu == 'Users')  active @endif" href="{{ url('users') }}">Users</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <li class="nav-item @if($main_manu == 'Products') active @endif">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
+                    <i class="fas fa-fw fa-bars"></i>
                     <span>Products</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse @if($main_manu == 'Products') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('categories.index') }}">categories</a>
-                        <a class="collapse-item" href="{{ url('products') }}">products</a>
-                        <a class="collapse-item" href="{{ route('stocks') }}">stocks</a>
+                        <a class="collapse-item @if($sub_manu == 'Categories')  active @endif" href="{{ route('categories.index') }}">Categories</a>
+                        <a class="collapse-item @if($sub_manu == 'Products')    active @endif" href="{{ url('products') }}">Products</a>
+                        <a class="collapse-item @if($sub_manu == 'Stocks')      active @endif" href="{{ route('stocks') }}">Stocks</a>
+                    </div>
+                </div>
+            </li>
+              <!-- Nav Item - Pages Collapse Menu -->
+              <li class="nav-item @if($main_manu == 'Reports') active @endif">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReport"
+                    aria-expanded="true" aria-controls="collapseReport">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Reports</span>
+                </a>
+                <div id="collapseReport" class="collapse  @if($main_manu == 'Reports') show @endif">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item @if($sub_manu == 'Sales')     active @endif" href="{{ route('reports.sales') }}">Sales</a>
+                        <a class="collapse-item @if($sub_manu == 'Purchases') active @endif" href="{{ route('reports.purchases') }}">Purchases</a>
+                        <a class="collapse-item @if($sub_manu == 'Payments')  active @endif" href="{{ route('reports.payments') }}">Payments</a>
+                        <a class="collapse-item @if($sub_manu == 'Receipts')  active @endif" href="{{ route('reports.receipts') }}">Receipts</a>
                     </div>
                 </div>
             </li>
@@ -127,14 +142,14 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Ashik</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle"
-                                    src="">
+                                    src="{{ asset('assets/img/IMG_20220210_220648.jpg') }}" alt="lulu">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                {{-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -145,7 +160,7 @@
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
+                                </a> --}}
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -211,7 +226,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
                 </div>
             </div>
         </div>

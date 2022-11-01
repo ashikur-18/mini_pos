@@ -4,23 +4,36 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\UserSalesController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\UserPaymentsController;
 use App\Http\Controllers\UserPurchaseController;
 use App\Http\Controllers\UserReceiptsController;
+use App\Http\Controllers\PaymentReportController;
 use App\Http\Controllers\ProductsStockController;
+use App\Http\Controllers\ReceiptReportController;
+use App\Http\Controllers\PurchaseReportController;
+use App\Http\Controllers\Reports\SlaesReportController;
 
-
-
-Route::get('/', function () {
-    return view('login.form');
-});
 
 // LogIn
 Route::get('login',[LoginController::class,'login'])->name('login');
 Route::post('login',[LoginController::class,'confirm'])->name('login.confirm');
+
+
+Route::group(['middleware' => 'auth'], function() {
+	
+	Route::get('dashboard', function () {
+	    return view('dashboard');
+	});
+
+//logout
+Route::get('logout',[LoginController::class,'logout'])->name('logout');
+
+Route::get('/',[DashboardController::class,'index']);
+Route::get('dashboard',[DashboardController::class,'index']);
 
 //Group route
 Route::get('groups',[UserGroupController::class,'index'])->name('groups');
@@ -66,3 +79,8 @@ Route::resource('categories',CategoriesController::class);
 //Product Route
 Route::resource('products',ProductsController::class);
 Route::get('stocks',[ProductsStockController::class,'index'])->name('stocks');
+Route::get('reports/sales',[SlaesReportController::class,'index'])->name('reports.sales');
+Route::get('reports/purchases',[PurchaseReportController::class,'index'])->name('reports.purchases');
+Route::get('reports/payments',[PaymentReportController::class,'index'])->name('reports.payments');
+Route::get('reports/receipts',[ReceiptReportController::class,'index'])->name('reports.receipts');
+});

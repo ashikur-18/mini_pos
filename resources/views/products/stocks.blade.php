@@ -3,7 +3,7 @@
 @section('main_content')
 <div class="row clearfix page_header">
     <div class="col-md-6">
-        <h2> Products </h2>		
+        <h2> Stocks </h2>		
     </div>
    
 </div>

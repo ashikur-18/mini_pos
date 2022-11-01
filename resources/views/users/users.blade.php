@@ -6,7 +6,7 @@
         <h2> Users </h2>		
     </div>
     <div class="col-md-6 text-right">
-        <a class="btn btn-info" href="{{ url('users/create') }}"> <i class="fa fa-plus"></i> New user </a>
+        <a class="btn btn-info btn-sm" href="{{ url('users/create') }}"> <i class="fa fa-plus"></i> New user </a>
     </div>
 </div>
 
@@ -63,9 +63,8 @@
                       </form>
                   </td>
                 </tr>
-                @empty
-                  
-               <h1>NO daata</h1>
+                @empty 
+               <h1>No Data</h1>
             @endforelse
           </tbody>
         </table>

@@ -62,6 +62,12 @@
                                 {{ Form::text('price', NULL,['class' => 'form-control','id'=> 'price','placeholder'=>'Sale Price'])}}
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label text-right">Has Stock<span class="text-danger">*</span></label>
+                            <div class="col-sm-2">
+                                {{ Form::select('has_stock',['1'=>'Yes','0'=>'No'],NULL, [ 'class'=>'form-control', 'id' => 'group' ]) }}
+                            </div>
+                        </div>
                         <div class="form-group row mt-4">
                             <label for="price" class="col-sm-2 col-form-label text-right"></label>
                              <div class="col-sm-10">

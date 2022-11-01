@@ -55,7 +55,7 @@
                         <th></th>
                         <th>
                             <button class="btn btn-info" data-toggle="modal" data-target="#newProduct">
-                                <i class="fa fa-plus">Add Product</i>
+                                <i class="fa fa-plus"></i>Add Product
                             </button>
                         </th>
                         <th colspan="2" class="text-right">Total:</th>
@@ -66,7 +66,7 @@
                       <th></th>
                       <th>
                           <button class="btn btn-primary" data-toggle="modal" data-target="#newReceiptForinvoice">
-                              <i class="fa fa-plus">Add Receipt</i>
+                              <i class="fa fa-plus"></i>Add Receipt
                           </button>
                       </th>
                       <th colspan="2" class="text-right">Paid:</th>
@@ -105,14 +105,14 @@
                     <div class="form-group row">
                       <label for="price" class="col-sm-3 col-form-label">Price <span class="text-danger">*</span>  </label>
                       <div class="col-sm-9">
-                        {{ Form::text('price', NULL, [ 'class'=>'form-control', 'id' => 'price', 'placeholder' => 'Price', 'required' ]) }}
+                        {{ Form::text('price', NULL, [ 'class'=>'form-control', 'id' => 'price','onkeyup' => 'getTotal()', 'placeholder' => 'Price', 'required' ]) }}
                       </div>
                     </div>
   
                     <div class="form-group row">
                       <label for="quantity" class="col-sm-3 col-form-label">Quantity </label>
                       <div class="col-sm-9">
-                        {{ Form::text('quantity', NULL, [ 'class'=>'form-control', 'id' => 'quantity', 'rows' => '3', 'placeholder' => 'quantity' ]) }}
+                        {{ Form::text('quantity', NULL, [ 'class'=>'form-control', 'id' => 'quantity','onkeyup' => 'getTotal()', 'rows' => '3', 'placeholder' => 'quantity' ]) }}
                       </div>
                     </div>
                     <div class="form-group row">
@@ -150,21 +150,21 @@
 					<div class="form-group row">
 					  <label for="date" class="col-sm-3 col-form-label"> Date <span class="text-danger">*</span> </label>
 					  <div class="col-sm-9">
-						{{ Form::date('date', NULL, [ 'class'=>'form-control', 'id' => 'date', 'placeholder' => 'Date', 'required' ]) }}
+						{{ Form::date('date', NULL, [ 'class'=>'form-control','placeholder' => 'Date', 'required' ]) }}
 					  </div>
 					</div>
 
 					<div class="form-group row">
 					  <label for="amount" class="col-sm-3 col-form-label">Amount <span class="text-danger">*</span>  </label>
 					  <div class="col-sm-9">
-						{{ Form::text('amount', NULL, [ 'class'=>'form-control', 'id' => 'amount', 'placeholder' => 'Amount', 'required' ]) }}
+						{{ Form::text('amount', NULL, [ 'class'=>'form-control', 'placeholder' => 'Amount', 'required' ]) }}
 					  </div>
 					</div>
 
 					<div class="form-group row">
 					  <label for="note" class="col-sm-3 col-form-label">Note </label>
 					  <div class="col-sm-9">
-						{{ Form::textarea('note', NULL, [ 'class'=>'form-control', 'id' => 'note', 'rows' => '3', 'placeholder' => 'Note' ]) }}
+						{{ Form::textarea('note', NULL, [ 'class'=>'form-control','rows' => '3', 'placeholder' => 'Note' ]) }}
 					  </div>
 					</div>
 			</div>
@@ -176,4 +176,16 @@
 		  {!! Form::close() !!}
 		</div>
 	</div>
+
+  <script>
+    function getTotal() {
+        var price 		= document.getElementById("price").value;
+        var quantity 	= document.getElementById("quantity").value;
+        if ( price && quantity ) {
+          var total = price * quantity;
+          document.getElementById("total").value = total;
+        }
+      }
+  
+  </script>
 @stop

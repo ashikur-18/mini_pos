@@ -18,20 +18,6 @@ class LoginController extends Controller
 
     public function confirm(LoginRequest $request)
     {
-        // $credentials = $request->validate([
-        //     'email' => ['required', 'email'],
-        //     'password' => ['required'],
-        // ]);
-        // $data = $request->only('email','password');
- 
-        // if (Auth::attempt($data)) {
-        //     // $request->session()->regenerate();
-        //     return redirect()->intended('dashboard');
-        // }
- 
-        // return back()->withErrors([
-        //     'email' => 'The provided credentials do not match our records.',
-        // ])->onlyInput('email');
         $data = $request->only('email', 'password');
 
     	if (Auth::attempt($data)) {
@@ -39,6 +25,11 @@ class LoginController extends Controller
     	} else {
     		return redirect()->route('login')->withErrors(['Invalid username and password']);
     	}
-    
+    }
+    public function logout()
+    {
+    	Auth::logout();
+
+    	return redirect()->route('login');
     }
 }

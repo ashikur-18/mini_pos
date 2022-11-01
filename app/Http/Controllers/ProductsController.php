@@ -9,7 +9,13 @@ use App\Http\Requests\ProductRequest;
 use Illuminate\Support\Facades\Session;
 
 class ProductsController extends Controller
-{
+{   
+    public function __construct()
+    {
+        parent::__construct();
+        $this->data['main_manu']    = 'Products';
+        $this->data['sub_manu']     = 'Products';
+    }
     /**
      * Display a listing of the resource.
      *
@@ -94,6 +100,7 @@ class ProductsController extends Controller
         $product->description = $data['description'];
         $product->cost_price  = $data['cost_price'];
         $product->price       = $data['price'];
+        $product->has_stock   = $data['has_stock'];
 
         if($product->save() ){
             Session::flash('message','Product Update Successfully');

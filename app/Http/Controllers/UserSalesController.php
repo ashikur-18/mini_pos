@@ -15,7 +15,9 @@ use App\Http\Requests\InvoiceProductRequest;
 
 class UserSalesController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
+        parent::__construct();
         $this->data['tab_menu'] = 'sales';
     }
     public function index($id)

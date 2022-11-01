@@ -11,6 +11,12 @@ use App\Http\Requests\UpdateUserRequest;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->data['main_manu']    = 'Users';
+        $this->data['sub_manu']     = 'Users';
+    }
     /**
      * Display a listing of the resource.
      *

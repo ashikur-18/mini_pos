@@ -109,14 +109,14 @@
                     <div class="form-group row">
                       <label for="price" class="col-sm-3 col-form-label">Price <span class="text-danger">*</span>  </label>
                       <div class="col-sm-9">
-                        {{ Form::text('price', NULL, [ 'class'=>'form-control', 'id' => 'price', 'placeholder' => 'Price', 'required' ]) }}
+                        {{ Form::text('price', NULL, [ 'class'=>'form-control', 'id' => 'price','onkeyup' => 'getTotal()', 'placeholder' => 'Price', 'required' ]) }}
                       </div>
                     </div>
   
                     <div class="form-group row">
                       <label for="quantity" class="col-sm-3 col-form-label">Quantity </label>
                       <div class="col-sm-9">
-                        {{ Form::text('quantity', NULL, [ 'class'=>'form-control', 'id' => 'quantity', 'rows' => '3', 'placeholder' => 'quantity' ]) }}
+                        {{ Form::text('quantity', NULL, [ 'class'=>'form-control', 'id' => 'quantity','onkeyup' => 'getTotal()', 'rows' => '3', 'placeholder' => 'quantity' ]) }}
                       </div>
                     </div>
                     <div class="form-group row">
@@ -180,4 +180,16 @@
 		  {!! Form::close() !!}
 		</div>
 	</div>
+
+  <script>
+    function getTotal() {
+        var price 		= document.getElementById("price").value;
+        var quantity 	= document.getElementById("quantity").value;
+        if ( price && quantity ) {
+          var total = price * quantity;
+          document.getElementById("total").value = total;
+        }
+      }
+  
+  </script>
 @stop

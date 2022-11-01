@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Session;
 
 class UserPaymentsController extends Controller
 {
-    public function __construct(){
+    public function __construct()
+    {
+        parent::__construct();
         $this->data['tab_menu'] = 'payments';
     }
     public function index($id)
