@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Group;
+use App\Models\SaleItems;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
@@ -26,6 +28,8 @@ class UserController extends Controller
     {
         $this->data['users'] = User::all();
         return view('users.users',$this->data);
+
+        
     }
 
     /**

@@ -16,7 +16,7 @@ return new class extends Migration
     public function up()
     {
         $admin = [
-                'name' => 'Jone Done',
+                'name' => 'Jone Doe',
                 'email' => 'jone@example.com',
                 'password' => Hash::make(12345),
                 'phone' => "1223445667",

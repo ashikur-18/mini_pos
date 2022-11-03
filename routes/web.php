@@ -3,11 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\UserSalesController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\DayReportsController;
 use App\Http\Controllers\UserPaymentsController;
 use App\Http\Controllers\UserPurchaseController;
 use App\Http\Controllers\UserReceiptsController;
@@ -52,6 +54,7 @@ Route::delete('users/{id}/invoices/{invoice_id}',[UserSalesController::class,'de
 Route::post('users/{id}/invoices/{invoice_id}',[UserSalesController::class,'addItem'])->name('user.sales.invoices.add_item');
 Route::delete('users/{id}/invoices/{invoice_id}/{item_id}',[UserSalesController::class,'destroyItem'])->name('user.sales.invoices.delete_item');
 
+Route::get('users/{id}/reports',[ReportsController::class,'reports'])->name('user.reports');
 
 //Purchase route
 Route::get('users/{id}/purchases',[UserPurchaseController::class,'index'])->name('user.purchases');
@@ -83,4 +86,5 @@ Route::get('reports/sales',[SlaesReportController::class,'index'])->name('report
 Route::get('reports/purchases',[PurchaseReportController::class,'index'])->name('reports.purchases');
 Route::get('reports/payments',[PaymentReportController::class,'index'])->name('reports.payments');
 Route::get('reports/receipts',[ReceiptReportController::class,'index'])->name('reports.receipts');
+Route::get('reports/days',[DayReportsController::class,'index'])->name('reports.days');
 });
