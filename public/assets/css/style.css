@@ -14,4 +14,30 @@
 }
 .topbar .topbar-divider {
    border:none;
-} 
+}
+ .bg-login-image {
+    background: url('https://peoplentech.net/uploads/product/16568454469632Retail%20POS.png')!important;
+    background-position: center;
+    background-size: cover;
+}
+.print {
+    text-align: end;
+    /* border-style: none; */
+    padding-bottom: 12px;
+}
+input[type="button"] {
+    border-style: none;
+    color: black;
+    background: seagreen;
+}
+img {
+    width: 31px;
+}
+.fa-solid, .fas {
+    font-weight: 900;
+    font-size: 30px;
+}
+.col-lg-6.d-none.d-lg-block.bg-login-image.img {
+    height: 288px;
+    margin-top: 113px;
+}

@@ -46,7 +46,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalSales }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <img src="{{ asset('assets/img/1200px-Taka_(Bengali_letter).svg.png') }}" alt="lulu">  
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalPurchases }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fa-regular fa-bangladeshi-taka-sign"></i>
+                        <img src="{{ asset('assets/img/1200px-Taka_(Bengali_letter).svg.png') }}" alt="lulu">  
                     </div>
                 </div>
             </div>
@@ -95,8 +95,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalReceipts }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fa-solid fa-bolt"></i>
-                        
+                        <img src="{{ asset('assets/img/1200px-Taka_(Bengali_letter).svg.png') }}" alt="lulu">  
                     </div>
                 </div>
             </div>
@@ -112,7 +111,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalPayments }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <img src="{{ asset('assets/img/1200px-Taka_(Bengali_letter).svg.png') }}" alt="lulu">  
                     </div>
                 </div>
             </div>
@@ -128,7 +127,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $totalReceipts - $totalPayments }}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <img src="{{ asset('assets/img/1200px-Taka_(Bengali_letter).svg.png') }}" alt="lulu">  
                     </div>
                 </div>
             </div>

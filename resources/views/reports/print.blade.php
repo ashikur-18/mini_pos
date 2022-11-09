@@ -1,107 +1,6 @@
-@extends('layout.main')
+@extends('layout.primary')
 
-@section('main_content')
-
-<div class="row clearfix page_header">
-  <div class="col-md-4">
-    <h2> Day Reports </h2>		
-  </div>
-  
-   
-  
-  <div class="col-md-8 text-right">
-    {!! Form::open([ 'route' => ['reports.days'], 'method' => 'get' ]) !!}
-    <div class="form-row align-items-center">
-      <a href="{{ url('reports/print?start_date='.$start_date .'&end_date='.$end_date ) }}" class="btn btn-primary mb-2" type="submit"> Print View</a>
-        <div class="col-auto mb-2">
-            <label class="sr-only" for="inlineFormInput">Start Date</label>
-            {{ Form::date('start_date', $start_date, [ 'class'=>'form-control', 'id' => 'date', 'placeholder' => 'Start Date' ]) }}
-        </div>
-        <div class="col-auto">
-            <label class="sr-only" for="inlineFormInputGroup">End Date</label>
-            <div class="input-group mb-2">
-              {{ Form::date('end_date', $end_date, [ 'class'=>'form-control', 'id' => 'date', 'placeholder' => 'End Date' ]) }}
-            </div>
-        </div>			    
-        <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-        </div>
-    </div>
-    {!! Form::close() !!}
-  </div>
-</div>
-
-<div class="row">
-  
-  <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total Sales </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ number_format($sales->sum('total'), 2) }} </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total Purchases </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ number_format($purchases->sum('total'), 2) }} </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total Receipts </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ number_format($receipts->sum('amount'), 2) }} </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  <!-- Earnings (Monthly) Card Example -->
-    <div class="col-xl-3 col-md-6 mb-4">
-      <div class="card border-left-primary shadow h-100 py-2">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-            <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"> Total Payments </div>
-              <div class="h5 mb-0 font-weight-bold text-gray-800"> {{ number_format($payments->sum('amount'), 2) }} </div>
-            </div>
-            <div class="col-auto">
-              <i class="fas fa-calendar fa-2x text-gray-300"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-
+@section('page_body')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
   <div class="card-header py-3">
@@ -262,5 +161,7 @@
       </div>
     </div>
   </div>
-
+  <div class="print">
+    <input type="button" value="print" onclick="window.print()">
+  </div>
 @stop

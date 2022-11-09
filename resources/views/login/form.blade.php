@@ -16,7 +16,7 @@
 		            @endforeach
 		        </ul>
 		    </div>
-		@endif
+		   @endif
 
         <div class="card o-hidden border-0 shadow-lg my-5">
           <div class="card-body p-0">
@@ -26,7 +26,7 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Welcome With Pos !</h1>
                   </div>
                   {!! Form::open([ 'route' => 'login.confirm', 'method' => 'post' ]) !!}
                     
@@ -38,14 +38,27 @@
                       {{ Form::password('password', [ 'class'=>'form-control form-control-user', 'id' => 'password', 'placeholder' => 'Enter Password' ]) }}
                     </div>
 
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
+                    </div> --}}
+                    
+                    <div class="form-group">
+                      <a href="{{ route('forget.password') }}">Forgot your password? </a>
                     </div>
-
-                    <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>	
+    
+                    <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    
+                    <div class="row mt-4">
+                      <div class="col-md-7">
+                        <p>Don't have an account? </p>
+                      </div>
+                      <div class="col-md-5 signup">
+                        <a href="{{ route('register') }}">Signup </a>
+                      </div>
+                    </div>
 
                   {!! Form::close() !!}
                   
